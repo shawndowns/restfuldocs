@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Pub
+GET     /                           controllers.Application.home
+GET		/about						controllers.Application.about
+GET		/contact					controllers.Application.contact
+
+# Docs
+#  View
+#GET	/docs/
+#  Manage
+GET		/docs/manage				controllers.Docs.manage
+
+#TODO: Remove temporary route
+GET		/temp						controllers.Application.temp
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

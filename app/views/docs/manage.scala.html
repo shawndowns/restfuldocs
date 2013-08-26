@@ -1,0 +1,70 @@
+<form class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="docName">Doc</label>
+    <div class="controls">
+      <input type="text" id="docName" placeholder="Name">
+      <input type="text" id="docName" placeholder="Description">
+    </div>
+    </div>
+    <div id="rootPathDiv"><!-- See the addRootPath function -->
+      <div id="endpointDiv">
+      </div>
+    <div id="dataDiv">
+    <div class="control-group">
+      <label class="control-label" for="data">Data</label>
+      <div class="controls">
+        <input type="text" id="fieldName" placeholder="Name">
+        <input type="text" id="paramType" placeholder="Param Type">
+        <input type="text" id="dataType" placeholder="Data Type">
+        <input type="checkbox" id="isRequired"> required?
+        <input type="text" id="defaultValue" placeholder="Default Value">
+        <input type="text" id="data1Description" placeholder="Description">
+      </div>
+    </div>
+    </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <label class="checkbox">
+          <input type="checkbox"> Remember me
+        </label>
+        <button type="submit" class="btn">Sign in</button>
+        <button type="button" id="addRootPath" class="btn">Add Root Path</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<script>
+	//initialize with 3
+	/*var startingNo = 3;
+	var $node = "";
+	for(varCount=0;varCount<=startingNo;varCount++){
+		var displayCount = varCount+1;
+		$node += '<p><label for="var'+displayCount+'">Variable '+displayCount+': </label><input type="text" name="var'+displayCount+'" id="var'+displayCount+'"><span class="removeVar">Remove Variable</span></p>';
+	}
+	$('form').prepend($node);
+	
+	$('form').on('click', '.removeVar', function(){
+		$(this).parent().remove();
+		//varCount--;
+	});
+
+	$('#addVar').on('click', function(){
+		//new node
+		varCount++;
+		$node = '<p><label for="var'+varCount+'">Variable '+varCount+': </label><input type="text" name="var'+varCount+'" id="var'+varCount+'"><span class="removeVar">Remove Variable</span></p>';
+		$(this).parent().before($node);
+	});*/
+	
+	$(document).ready(function(){
+	  injectHTML("rootPath.html", "rootPathDiv");
+	  injectHTML("endpoint.html", "endpointDiv");
+	});
+	
+	function injectHTML(asset, element) {
+      $.get("/assets/injectable/"+asset, function(result) {
+	    $("#"+element).append(result);
+	  });
+	}
+</script>
