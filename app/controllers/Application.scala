@@ -6,7 +6,7 @@ import play.api.mvc._
 object Application extends Controller {
   
   def home = Action {
-    Ok(views.html.layout(views.html.pub.home()))
+    Ok(views.html.layout(views.html.pub.home(), true))
   }
 
   def about = Action {
